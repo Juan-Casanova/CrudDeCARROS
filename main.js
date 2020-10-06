@@ -42,6 +42,8 @@ const cars = [
 ]
 
 const containerCards = document.getElementById('container-cards');
+let editingCar = false;
+
 
 function printAll() {
 
@@ -59,8 +61,8 @@ function printAll() {
               <li class="list-group-item">Precio: ${car.precio}</li>
             </ul>
               <div class="container-bottons">
-                <button class="btn btn-primary botton">Editar</button>
-                <button class="btn btn-primary botton" onclick="removeUser(${car.id})">Eleminar</button>
+                <button class="btn btn-primary botton" onclick="editCarButton(${car.id})">Editar</button>
+                <button class="btn btn-primary botton" onclick="removeCar(${car.id})">Eleminar</button>
               </div>
           </div>
         </div> `
@@ -87,12 +89,44 @@ function addCar() {
     console.log(cars)
 }
 
-function removeUser(id) {
+function removeCar(id) {
     const car = cars.findIndex((car) => car.id===id);
-    console.log(car);
     cars.splice(car, 1);
     printAll();
     
+}
+
+function submitCar() {
+    if(editingCar) {
+        editCar();
+    } else {
+        addCar();
+    }
+}
+
+function editCar() {
+    const marca = document.getElementById('marca').value;
+    const modelo = document.getElementById('modelo').value;
+    const color = document.getElementById('color').value;
+    const año = document.getElementById('año').value;
+    const costo = document.getElementById('costo').value;
+    editingCar.marca = marca;
+    editingCar.modelo = modelo;
+    editingCar.color = color;
+    editingCar.año = año;
+    editingCar.costo = costo;
+    printAll();
+    editingCar=false;
+}
+
+function editCarButton(id) {
+    const car = cars.find((car) => car.id===id);
+    document.getElementById('marca').value = car.marca;
+    document.getElementById('modelo').value = car.modelo;
+    document.getElementById('color').value = car.color;
+    document.getElementById('año').value = car.año;
+    document.getElementById('costo').value = car.precio;
+    editingCar = car;
 }
 
 printAll();
