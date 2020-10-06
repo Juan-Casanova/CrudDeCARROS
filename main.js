@@ -63,4 +63,20 @@ function printAll() {
     });
 }
 
+function addCar() {
+    
+    const newCar = {
+        marca: document.getElementById('marca').value,
+        modelo: document.getElementById('modelo').value,
+        color: document.getElementById('color').value,
+        año: document.getElementById('año').value,
+        precio: document.getElementById('costo').value
+    }
+
+    cars.push(newCar);
+    printAll();
+
+    console.log(cars)
+}
+
 printAll();

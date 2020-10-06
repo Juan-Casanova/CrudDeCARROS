@@ -8,9 +8,56 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
   <h1>CARROS EXISTENTES</h1>
+
   <div id="container-cards">  
   </div>
+
+  <div id="container-form" class="tittle-middle">
+    <h3>Ingresa nuevo auto</h3>
+    <form onsubmit="event.preventDefault(), addCar()">
+        
+        <div class="form-grou row space-top">
+            <label for="marca" class="col-sm-2 col-form-label">Marca</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="marca" required>
+            </div>
+        </div>
+
+        <div class="form-grou row space-top">
+            <label for="modelo" class="col-sm-2 col-form-label">Modelo</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="modelo" required>
+            </div>
+        </div>
+
+        <div class="form-grou row space-top">
+            <label for="color" class="col-sm-2 col-form-label">Color</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="color" required>
+            </div>
+        </div>
+
+        <div class="form-grou row space-top">
+            <label for="año" class="col-sm-2 col-form-label">Año</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="año" required>
+            </div>
+        </div>
+
+        <div class="form-grou row space-top">
+            <label for="costo" class="col-sm-2 col-form-label">Costo</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="costo" required>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary space-top-botton">Agregar Carro</button>
+    
+    </form>
+  </div>
+  
 </body>
     <script src="./main.js"></script>
 </html>

@@ -28,3 +28,17 @@ h1 {
     font-weight: bolder;
     margin-top: 2%;
 }
+
+#container-form {
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
+.space-top {
+    padding-top: 2%;
+}
+
+.space-top-botton {
+    margin-top: 2%;
+}
