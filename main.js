@@ -1,5 +1,6 @@
 const cars = [
     {
+        id: 1,
         marca: 'Audi',
         modelo: 'A4',
         color: 'Blanco',
@@ -7,6 +8,7 @@ const cars = [
         precio: 750000
     },
     {
+        id: 2,
         marca: 'Bmw',
         modelo: 'i8',
         color: 'negro',
@@ -14,6 +16,7 @@ const cars = [
         precio: 650000
     },
     {
+        id: 3,
         marca: 'Chevrolet',
         modelo: 'Aveo',
         color: 'Gris',
@@ -21,6 +24,7 @@ const cars = [
         precio: 250000
     },
     {
+        id: 4,
         marca: 'Kia',
         modelo: 'Rio',
         color: 'Rojo',
@@ -28,6 +32,7 @@ const cars = [
         precio: 350000
     },
     {
+        id: 5,
         marca: 'Volkswagen',
         modelo: 'Golf',
         color: 'Plata',
@@ -54,8 +59,8 @@ function printAll() {
               <li class="list-group-item">Precio: ${car.precio}</li>
             </ul>
               <div class="container-bottons">
-                <a href="#" class="btn btn-primary botton">Editar</a>
-                <a href="#" class="btn btn-primary botton">Eleminar</a>
+                <button class="btn btn-primary botton">Editar</button>
+                <button class="btn btn-primary botton" onclick="removeUser(${car.id})">Eleminar</button>
               </div>
           </div>
         </div> `
@@ -65,7 +70,10 @@ function printAll() {
 
 function addCar() {
     
+    const newId = cars.length;
+
     const newCar = {
+        id: newId+1,
         marca: document.getElementById('marca').value,
         modelo: document.getElementById('modelo').value,
         color: document.getElementById('color').value,
@@ -77,6 +85,14 @@ function addCar() {
     printAll();
 
     console.log(cars)
+}
+
+function removeUser(id) {
+    const car = cars.findIndex((car) => car.id===id);
+    console.log(car);
+    cars.splice(car, 1);
+    printAll();
+    
 }
 
 printAll();
